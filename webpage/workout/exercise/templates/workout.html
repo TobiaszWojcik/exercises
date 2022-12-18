@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>
+
+    {{object}}
+</h1>
+<table class=" table table-workout border border-dark text-center align-middle">
+    <thead class="table-dark">
+        <tr class="">
+            <th class="border border-light" rowspan="2">Lp.</th>
+            <th class="border border-light" rowspan="2">Ćwiczenie</th>
+            <th class="border border-light" colspan="4">Serie</th>
+
+        </tr>
+        <tr>
+            <th class="border border-light">Seria1</th>
+            <th class="border border-light">Seria2</th>
+            <th class="border border-light">Seria3</th>
+            <th class="border border-light">Seria4</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for workout in object.exercises.all %}
+        <tr>
+            <td>{{forloop.counter}}/{{object.exercises.all|length}}</td>
+            <td>
+                <img src="{{workout.icon.url}}"type="image/webp" class="justify-content-center table_image"><br>{{workout}}
+            </td>
+            <td>
+                <input class="w-25" name="seria1" type="text" placeholder="ilość">
+                x
+                <input class="w-25" type="number" name="waga1" placeholder="waga">
+            </td>
+            <td>
+                <input class="w-25" name="seria2" type="text" placeholder="ilość">
+                x
+                <input class="w-25" type="number" name="waga2" placeholder="waga">
+            </td>
+            <td>
+                <input class="w-25" name="seria3" type="text" placeholder="ilość">
+                x
+                <input class="w-25" type="number" name="waga3" placeholder="waga">
+            </td>
+            <td>
+                <input class="w-25" name="seria4" type="text" placeholder="ilość">
+                x
+                <input class="w-25" type="number" name="waga4" placeholder="waga">
+            </td>
+            {%endfor%}
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}

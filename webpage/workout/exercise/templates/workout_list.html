@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table-bordered  m-5">
+    <thead class="table-light">
+        <tr>
+            <th>Lp.</th>
+            <th>Typ</th>
+            <th>Data</th>
+            <th>Ćwiczenia</th>
+        </tr>
+    </thead>
+    <tbody class="p-5 table-light align-middle">
+        {% for workouts in object_list %}
+            <tr>
+                <td class="p-3">{{forloop.counter}}</td>
+                <td class="p-3"><img src="{{workouts.type.icon.url}}" type="image/webp" class="justify-content-center table_image"></td>
+                <td class="p-3"><a href="{% url 'exercises:workout' workouts.id %}">{{workouts.date}}</a></td>
+                <td class="p-3">
+<!--&lt;!&ndash;                    -->
+                    {% for workout in workouts.exercises.all %}
+                        {{workout}}<br>
+                    {%endfor%}
+                </td>
+
+
+            </tr>
+        {%endfor%}
+    </tbody>
+</table>
+
+{% endblock %}

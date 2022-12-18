@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table-bordered  m-5">
+    <thead class="table-light">
+        <tr>
+            <th colspan="2">Lp.</th>
+            <th>Ćwiczenie</th>
+            <th>Części ciała</th>
+        </tr>
+    </thead>
+    <tbody class="p-5 table-light align-middle">
+        {% for exercise in object_list %}
+            <tr>
+                {% if forloop.counter == 1 %}
+                <td rowspan="{{object_list|length}}" class="vertical-text p-3">{{ exercise.body_part.all.get.name }}</td>
+                {% endif %}
+                <td class="p-3">{{forloop.counter}}</td>
+                <td class="p-3"><a href="{% url 'exercises:exercise_detail' exercise.id %}">{{exercise.name}}</a></td>
+                <td class="p-3"> <img src="{{exercise.icon.url}}" type="image/webp" class="table_image"></td>
+
+            </tr>
+        {%endfor%}
+    </tbody>
+</table>
+
+{% endblock %}

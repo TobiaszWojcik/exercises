@@ -1,0 +1,15 @@
+.table_image{
+    max-width: 200px;
+}
+body{
+}
+.vertical-text {
+writing-mode:vertical-lr
+}
+
+.table-workout th{
+    border-color:white;
+}
+.table-workout.td{
+    border-color:black;
+}

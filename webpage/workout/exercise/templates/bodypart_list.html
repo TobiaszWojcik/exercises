@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-center">
+<table class="table table-fit w-50">
+
+    <tbody class="table-light text-center align-middle ">
+      <tr >
+          {% for part in object_list %}
+            <td class="">
+                <a href="{% url 'exercises:exercises_list' part.pk %}">
+                    <h4 class="">{{part.name}}</h4>
+                    <img src="{{part.icon.url}}" type="image/webp" class="justify-content-center table_image">
+                    <br>
+                </a>
+            </td>
+          {% if forloop.counter|divisibleby:"3" %}
+            </tr>
+            <tr>
+                {% endif %}
+          {%endfor%}
+    </tr>
+    </tbody>
+</table>
+</div>
+{% endblock %}
