@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'exercise.apps.ExerciseConfig',
+    'workout.apps.WorkoutConfig',
     'django_webp',
 ]
 
